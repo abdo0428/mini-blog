@@ -1,23 +1,23 @@
 @extends('admin.layout')
-@section('title','تصنيف جديد')
+@section('title','New Category')
 
 @section('content')
 <div class="card shadow-sm">
   <div class="card-body">
-    <h5 class="mb-3">إضافة تصنيف</h5>
+    <h5 class="mb-3">Add Category</h5>
 
     <form method="POST" action="{{ route('admin.categories.store') }}">
       @csrf
 
       <div class="mb-3">
-        <label class="form-label">اسم التصنيف</label>
+        <label class="form-label">Category Name</label>
         <input name="name" class="form-control" value="{{ old('name') }}" required>
         @error('name') <div class="text-danger small">{{ $message }}</div> @enderror
       </div>
 
       <div class="d-flex gap-2">
-        <button class="btn btn-success">حفظ</button>
-        <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">رجوع</a>
+        <button class="btn btn-success">Save</button>
+        <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Back</a>
       </div>
     </form>
   </div>

@@ -34,31 +34,31 @@ class TagController extends Controller
 
         Tag::create(['name'=>$data['name'],'slug'=>$slug]);
 
-        return redirect()->route('admin.tags.index')->with('success','تم إنشاء التصنيف');
+        return redirect()->route('admin.tags.index')->with('success','Tag created successfully');
     }
 
-    public function edit(Tag $Tag) { return view('admin.tags.edit', compact('Tag')); }
+    public function edit(Tag $tag) { return view('admin.tags.edit', compact('tag')); }
 
-    public function update(Request $request, Tag $Tag)
+    public function update(Request $request, Tag $tag)
     {
         $data = $request->validate(['name' => ['required','string','max:255']]);
 
-        if ($data['name'] !== $Tag->name) {
+        if ($data['name'] !== $tag->name) {
             $slug = Str::slug($data['name']);
             $i = 1; $base = $slug;
-            while (Tag::where('slug',$slug)->where('id','!=',$Tag->id)->exists()) $slug = $base.'-'.$i++;
-            $Tag->slug = $slug;
+            while (Tag::where('slug',$slug)->where('id','!=',$tag->id)->exists()) $slug = $base.'-'.$i++;
+            $tag->slug = $slug;
         }
 
-        $Tag->name = $data['name'];
-        $Tag->save();
+        $tag->name = $data['name'];
+        $tag->save();
 
-        return redirect()->route('admin.tags.index')->with('success','تم تحديث التصنيف');
+        return redirect()->route('admin.tags.index')->with('success','Tag updated successfully');
     }
 
-    public function destroy(Tag $Tag)
+    public function destroy(Tag $tag)
     {
-        $Tag->delete();
+        $tag->delete();
         return response()->json(['ok' => true]);
     }
 }

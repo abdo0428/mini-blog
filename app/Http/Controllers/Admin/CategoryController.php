@@ -34,7 +34,7 @@ class CategoryController extends Controller
 
         Category::create(['name'=>$data['name'],'slug'=>$slug]);
 
-        return redirect()->route('admin.categories.index')->with('success','تم إنشاء التصنيف');
+        return redirect()->route('admin.categories.index')->with('success','Category created successfully');
     }
 
     public function edit(Category $category) { return view('admin.categories.edit', compact('category')); }
@@ -53,7 +53,7 @@ class CategoryController extends Controller
         $category->name = $data['name'];
         $category->save();
 
-        return redirect()->route('admin.categories.index')->with('success','تم تحديث التصنيف');
+        return redirect()->route('admin.categories.index')->with('success','Category updated successfully');
     }
 
     public function destroy(Category $category)
