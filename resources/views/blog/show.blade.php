@@ -53,8 +53,9 @@
     </div>
     <nav class="quick-links">
       <a href="{{ route('blog.index') }}">Home</a>
-      <a href="{{ route('blog.rss') }}">RSS</a>
-      <a href="{{ route('blog.sitemap') }}">Sitemap</a>
+      @auth
+        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
+      @endauth
     </nav>
     <div class="d-flex gap-2">
       <a class="btn btn-ghost btn-sm" href="{{ route('blog.index') }}">Back</a>

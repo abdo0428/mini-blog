@@ -71,9 +71,6 @@
     </div>
     <nav class="quick-links">
       <a href="{{ route('blog.index') }}">Home</a>
-      <a href="{{ route('blog.rss') }}">RSS</a>
-      <a href="{{ route('blog.sitemap') }}">Sitemap</a>
-      <a href="{{ route('blog.robots') }}">Robots</a>
     </nav>
     <div class="d-flex gap-2">
       @auth

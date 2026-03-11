@@ -37,10 +37,8 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
         Route::get('categories/data', [CategoryController::class, 'data'])->name('categories.data');
         Route::resource('categories', CategoryController::class)->except(['show']);
-
         Route::get('tags/data', [TagController::class, 'data'])->name('tags.data');
         Route::resource('tags', TagController::class)->except(['show']);
-
         Route::get('settings', [SettingController::class, 'index'])->name('settings.index');
         Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
     });

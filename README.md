@@ -75,3 +75,6 @@ Open the site at `http://127.0.0.1:8000`.
 **Troubleshooting**
 - If images are not showing, run `php artisan storage:link`.
 - If styles are missing, make sure `npm run dev` is running or use `npm run build`.
+
+
+
